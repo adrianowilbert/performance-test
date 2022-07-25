@@ -8,14 +8,15 @@
 		</encoder>
 	</appender>
 
-	<!-- Uncomment for logging ALL HTTP request and responses -->
-	<!--<logger name="io.gatling.http.ahc" level="TRACE" />-->
-	<!--<logger name="io.gatling.http.response" level="TRACE" />-->
-	<!-- Uncomment for logging ONLY FAILED HTTP request and responses -->
+	<!-- DESCOMENTAR para olhar ALL HTTP request e responses -->
+	<!--logger name="io.gatling.http.ahc" level="DEBUG" />-->
+	<!--logger name="io.gatling.http.response" level="DEBUG" />-->
+
+	<!-- DESCOMENTAR para olhar ONLY FAILED HTTP request e responses -->
 	<logger name="io.gatling.http.ahc" level="ERROR" />
 	<logger name="io.gatling.http.response" level="ERROR" />
 
-	<root level="ERROR">
+	<root level="ERROR"> <!--Utilizar "TRACE" para "DEBUG" e "ERROR" para "ERROR" -->
 		<appender-ref ref="CONSOLE" />
 	</root>
 

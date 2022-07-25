@@ -1,6 +1,6 @@
-# load-test #
-Projeto de teste de carga na linguagem Scala para estudos.
-Logo o `README` irá contér mais informações que o necessário, trazendo dicas e explicações.
+# performance-test #
+Projeto de teste de performance na linguagem Scala que pode ser utilizado como um projeto convencional ou como um
+módulo de execução dentro de um projeto de testes de integração de API.
 
 | **WILBERT** | [Adriano Wilbert](https://github.com/adrianowilbert) _(adrianowilbert@gmail.com.br)_
 
@@ -13,19 +13,18 @@ Este projeto utiliza as seguintes tecnologias:
   Framework - [gatling](http://gatling.io/). 
   
   Linguagem - [Scala](https://www.scala-lang.org/).
-  
-  Contêineres - [Docker](https://www.docker.com/).
 
 ### API
 
-Projeto utliza a API de código aberto: http://fakerestapi.azurewebsites.net/swagger/ui/index
+Projeto utiliza a API de código aberto: http://fakerestapi.azurewebsites.net/swagger/ui/index
 
-O objetivo é testar se as requisições estão funcionando corretamente, e não a API em si.
-Logo os testes não podem extrapolar um valor muito alto de requisições, a fim de não onerar a API.
+O objetivo é testar se os scripts de testes estão funcionais, e não a API em si.
+Logo os testes não podem extrapolar um valor muito alto de requisições, para não onerar o funcionamento da API.
 
 ### Comandos de execução
 
-clean test -Dgatling.simulationClass=br.com.cliente.api.loadTest.simulation.NomeRota -f pom.xml
+clean test -Dgatling.simulationClass=br.com.performance.simulations.NomeRotaCargaSimulacao -f pom.xml
+clean test -Dgatling.simulationClass=br.com.performance.simulations.NomeRotaStressSimulacao -f pom.xml
 
 ### VAL & VAR
 
@@ -98,53 +97,6 @@ repeat(times = 5) {--elemento de repetição
       .pause(duration = 3) --elemento de duração da pausa
 }
 ```
-
-#### Comandos Docker
-
-- Comandos para usar no terminal:
-    - `docker-compose up` executa o arquivo de composição para rodar os testes
-    - `Ctrl+c` pausa os teste
-    - `docker-compose dow` limpa o recipiente e finaliza os testes
-    
-    #### docker-compose
-    
-    Para executar os testes em uma estrutura de containes para acompanhar os testes em tempo real no Grafana.
-    ```shell
-    cd src\load-test\docker
-    docker-compose up -d
-    ```
-    
-    Para interromper os testes
-    ```shell
-    Ctrl+C
-    ```
-    
-    Para limpar os recepientes e finalizar os testes
-    ```shell
-    docker-compose down
-    ```
-    
-    Acompanhar a execução do gatling.
-    ```shell
-    cd src\load-test\docker
-    docker-compose logs -f gatling
-    ```
-    
-    Para e reconfigurar o gatling.
-    ```shell
-    docker-compose stop gatling
-    docker-compose start gatling
-    ```
-    
-    Gerar os reports após a execução (quando não for habilitado reports ao fim de cada simulação)
-    ```shell
-    docker-compose.exe -f docker-compose-reports.yml run --rm reports
-    ```
-    
-    Remover todos os containers
-    ```shell
-    docker-compose.exe down --remove-orphans
-    ```
     
 - Endereço para acompanhar os testes:
     - [Grafana LocalHost](http://localhost:8081).

@@ -1,6 +1,10 @@
-package br.com.client.utils
+package br.com.performance.utils
 
 object RandomCpf {
+
+  /**
+   * Responsável por gerar um cpf válido.
+   */
   
   def gerarCpf(): String = {
         var prefixo: Array[Int] = new Array[Int](9)
