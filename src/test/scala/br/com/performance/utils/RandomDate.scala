@@ -1,8 +1,12 @@
-package br.com.cliente.utils
+package br.com.performance.utils
 
 import scala.util.Random
 
 object RandomDate {
+
+    /**
+     * Responsável por gerar uma data válida.
+     */
 
     def gerarData(): String = {
         var valor = ano() + "-" + mes() + "-" + dia()

@@ -1,0 +1,7 @@
+{
+    "cpf": "${cpf}",
+    "nome": "Adriano",
+    "sobrenome": "Wilbert",
+    "sexo": null,
+    "idade": 32
+}
